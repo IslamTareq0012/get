@@ -1,0 +1,223 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <!-- <ion-row>
+        <ion-col style="color:white;" col-12 offset-4> -->
+      Categories
+      <!-- </ion-col>
+      </ion-row> -->
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-10 offset-4 class="first">
+      Just One Last Step!
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="second" col-10 offset-1>
+      Which category are you interested in?
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="third" col-10 offset-4>
+      choose your favourite tags
+    </ion-col>
+  </ion-row>
+
+  <!--<ion-row>
+     <div class="second"> Which category are you interested in?
+     </div>
+      <div class="third"> choose your favourite tags
+     </div>-->
+
+  <ion-grid style="padding: 5px 30px; text-align: center;">
+    <ion-row>
+      <ion-col col-4 class="outer">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(1,click1)" [(ngModel)]="click1"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/sport icon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Sports
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col col-4 class="middle">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(2,click2)" [(ngModel)]="click2"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/comicsicon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Comics
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-4 class="rightouter">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(3,click3)" [(ngModel)]="click3"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/tecicon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Technology
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 class="secondrowouter">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(4,click4)" [(ngModel)]="click4"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/bookicon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Books
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col col-4 class="secondrowmiddle">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(5,click5)" [(ngModel)]="click5"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/kitchen icon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Kitchen items
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-4 class="secondrowmiddle">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(6,click6)" [(ngModel)]="click6"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/clothes icon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Clothes
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4 class="outer">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(7,click7)" [(ngModel)]="click7"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/office icon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Sports
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col col-4 class="middle">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(8,click8)" [(ngModel)]="click8"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+            <img width="auto" height="35" src="assets/imgs/animal icon@3x.png">
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Comics
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col col-4 class="rightouter">
+        <ion-row>
+          <ion-col col-12>
+            <ion-checkbox offset-4 (click)="addtoselected(9,click9)" [(ngModel)]="click9"></ion-checkbox>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12>
+
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 style="color: rgba(69, 69, 69, 1);">
+            Other
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+
+  <button (click)="addtouser()" style=" background-color: white; font-size: 20px;color :rgba(22, 10, 139, 1);margin-top:20px; margin-left: 80%;">Next</button>
+</ion-content>

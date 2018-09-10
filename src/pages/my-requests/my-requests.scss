@@ -1,0 +1,27 @@
+page-my-requests {
+    #butn1{
+        color:rgba(22, 10, 139, 1); background-color: #FAFAFA;
+        
+        }
+        
+        
+        #butn2{
+            width: 50% ; background-color: #FAFAFA; color:rgba(22, 10, 139, 1);
+        }
+        .c{
+             text-align: center;
+             
+        }
+        .c:hover{
+         
+             font-weight:bold;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(22, 10, 139, 1);
+           
+        }
+        flexLine{
+            height: 100px;
+            margin-bottom: 7px;
+        }
+
+}

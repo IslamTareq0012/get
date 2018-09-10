@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar color="primary" align-title="center" style="size: 30%;">
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()" style="position: relative; bottom:4rem;">
+            <ion-icon name="ios-close-circle-outline"></ion-icon>
+          </button>
+    </ion-buttons>
+    <ion-title style="text-align: center">
+      Edit Profile
+    </ion-title>
+    <img *ngIf="user.image && !imagePicked" height="auto" width="50" id="foo" style="margin-bottom: 2rem; height:80px; width:80px; position: relative; left: 7.5rem; top:3rem; border-radius:50%;"
+      src="{{imgbasurl}}{{user.image}}?version={{ran}}">
+    <img *ngIf="user.image && imagePicked" height="auto" width="50" id="foo" style="margin-bottom: 2rem; height:80px; width:80px; position: relative; left: 7.5rem; top:3rem; border-radius:50%;"
+      src="{{user.image}}">
+    <img *ngIf="!user.image" height="auto" width="50" id="foo" style="margin-bottom: 2rem; height:80px; width:80px; position: relative; left: 7.5rem; top:3rem; border-radius:50%;"
+      src="assets/imgs/765-default-avatar.png">
+
+    <button (click)="chooseImage()" ion-button small color="light" style="position: relative; left: 3rem; top:0.15rem; height: 2rem;">Edit Image</button>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Name</ion-label>
+    <ion-input type="text" [(ngModel)]="user.fullName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>E-mail</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Phone No.</ion-label>
+    <ion-input type="number" [(ngModel)]="user.mobileNumber"></ion-input>
+  </ion-item>
+  <button ion-button (click)="editProfile()" block>Add</button>
+
+</ion-content>

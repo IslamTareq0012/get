@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <!-- <ion-row>
+        <ion-col style="color:white;" col-10 offset-4> -->
+          Verification
+        <!-- </ion-col>
+      </ion-row> -->
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-8 offset-3 style="padding-bottom: 10%; color:rgba(99, 99, 99, 1);">
+      Please enter verification code
+    </ion-col>
+
+  </ion-row>
+
+  <div style="float:left; margin-left:17.6%; margin-top:10%;" class="circleBase type3">
+    <div *ngIf="digits.length>=1" style="margin-left: 25%; margin-top:25%;" class="circleBase bullet"></div>
+  </div>
+  <div style="float:left; margin-left:20px;margin-top:10%;" class="circleBase type3">
+    <div *ngIf="digits.length>=2" style="margin-left: 25%; margin-top:25%;" class="circleBase bullet"></div>
+  </div>
+  <div style="float:left; margin-left:20px;margin-top:10%;" class="circleBase type3">
+    <div *ngIf="digits.length>=3" style="margin-left: 25%; margin-top:25%;" class="circleBase bullet"></div>
+  </div>
+  <div style="float:left; margin-left:20px;margin-top:10%;" class="circleBase type3">
+    <div *ngIf="digits.length==4" style="margin-left: 25%; margin-top:25%;" class="circleBase bullet"></div>
+  </div>
+
+  <ion-grid style=" padding: 20% 30px; text-align: center;">
+    <ion-row>
+      <ion-col>
+
+        <div (click)="buttonclick(1)" class="num" style="color: rgba(4, 31, 162, 1); font-size:30px;">1</div>
+
+      </ion-col>
+      <ion-col>
+
+        <div (click)="buttonclick(2)" class="num" style="color: rgba(4, 31, 162, 1); font-size:30px;">2</div>
+
+      </ion-col>
+      <ion-col>
+
+        <div (click)="buttonclick(3)" class="num" style="color: rgba(4, 31, 162, 1);font-size:30px; ">3</div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding-top: 5%">
+
+        <div (click)="buttonclick(4)" class="num" style="color: rgba(4, 31, 162, 1);font-size:30px;">4</div>
+
+      </ion-col>
+      <ion-col style="padding-top: 5%">
+
+        <div (click)="buttonclick(5)" class="num" style="color: rgba(4, 31, 162, 1); font-size:30px;">5</div>
+
+      </ion-col>
+      <ion-col style="padding-top: 5%">
+
+        <div (click)="buttonclick(6)" class="num" style="color: rgba(4, 31, 162, 1);font-size:30px;">6</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding-top: 5%">
+
+        <div (click)="buttonclick(7)" class="num" style="color: rgba(4, 31, 162, 1);font-size:30px;">7</div>
+
+      </ion-col>
+
+
+      <ion-col style="padding-top: 5%">
+
+        <div (click)="buttonclick(8)" class="num" style="color: rgba(4, 31, 162, 1);font-size:30px;">
+          8
+        </div>
+      </ion-col>
+      <ion-col style="padding-top: 5%">
+
+        <div (click)="buttonclick(9)" class="num" style="color: rgba(4, 31, 162, 1);font-size:30px;">
+          9
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+    <ion-row>
+      <ion-col style="padding-top: 5%">
+
+
+
+      </ion-col>
+
+
+      <ion-col style="padding-top: 5%">
+
+        <div class="num" (click)="buttonclick(0)" style="color: rgba(4, 31, 162, 1);font-size:30px;">
+          0
+        </div>
+      </ion-col>
+      <ion-col style="padding-top: 5%">
+
+        <div class="num" style="color: rgba(4, 31, 162, 1);font-size:30px;">
+          <ion-icon (click)="buttondelete()" ios="ios-backspace" md="md-backspace"></ion-icon>
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

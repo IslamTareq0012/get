@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()">
+                <ion-icon name="ios-close-circle-outline"></ion-icon>
+              </button>
+    </ion-buttons>
+    <ion-title>Edit Address</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button icon-left block color="primary" (click)="useMyLocation()">
+        <ion-icon name="locate"></ion-icon>
+        <div>My Location</div>
+  </button>
+  <form *ngIf="locationSet" (ngSubmit)="editadditional()" #addressForm="ngForm">
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="Country" name="country" [(ngModel)]="addressComponents.country" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="City" name="city" [(ngModel)]="addressComponents.city" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="Area" name="area" [(ngModel)]="addressComponents.area" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-item>
+          <ion-input type="text" placeholder="+20            Mobile Number" name="number" [(ngModel)]="addressComponents.mobile" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    <button ion-button type="submit" block> Submit</button>
+
+  </form>
+  <agm-map *ngIf="locationSet" [latitude]="clickedCoordinates.lat" [longitude]="clickedCoordinates.lang" [zoom]="20" (mapClick)="onMapClick($event)">
+    <agm-marker [latitude]="clickedCoordinates.lat" [longitude]="clickedCoordinates.lang" *ngIf="locationSet">
+    </agm-marker>
+  </agm-map>
+</ion-content>

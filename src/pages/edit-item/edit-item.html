@@ -1,0 +1,172 @@
+<ion-header style="color: #160a8b;">
+
+  <ion-navbar color="parimary">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()">
+          <ion-icon name="ios-close-circle-outline" ></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title style="text-align: center; color: #160a8b;">
+      Edit Item
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align: center; margin: auto; padding: 10px; color: #464646;">Property Category</div>
+  <div>
+    <ion-grid style="margin: 3rem;">
+
+      <ion-row>
+        <ion-col col-4 (click)="giveClicked()">
+          <img *ngIf="isGive" src="assets/imgs/g-1@2x.png" style="position: relative; right: 2rem;">
+          <img *ngIf="!isGive" src="assets/imgs/g@2x.png" style="position: relative; right: 2rem;">
+          <div *ngIf="!isGive" style="text-align: center; font-size: 1.6rem;  padding-top: 1rem; color: #898989; position: relative; right:4rem;">GIVE</div>
+          <div *ngIf="isGive" style="text-align: center; font-size: 1.6rem;  padding-top: 1rem; color: #160a8b; position: relative; right:4rem;">GIVE</div>
+        </ion-col>
+
+        <ion-col col-4 (click)="exchangeClicked()">
+          <img *ngIf="!isExchange" src="assets/imgs/e@2x.png" style="position: relative; right: 1.1rem;">
+          <img *ngIf="isExchange" src="assets/imgs/e-1@2x.png" style="position: relative; right: 1.1rem;">
+          <div *ngIf="isExchange" style="text-align: center; font-size: 1.6rem;  padding-top: 1rem; color: #160a8b; position: relative; right:3rem;">EXCHANGE</div>
+          <div *ngIf="!isExchange" style="text-align: center; font-size: 1.6rem;  padding-top: 1rem; color: #898989; position: relative; right:3rem;">EXCHANGE</div>
+        </ion-col>
+
+        <ion-col col-4 (click)="takeClicked()">
+          <img *ngIf="isTake" src="assets/imgs/t@2x.png" style="position: relative; left: 1.5rem;">
+          <img *ngIf="!isTake" src="assets/imgs/t-1@2x.png" style="position: relative; left: 1.5rem;">
+          <div *ngIf="!isTake" style="text-align: center; font-size: 1.6rem;  padding-top: 1rem; color: #898989; position: relative; right:1.2rem;">TAKE</div>
+          <div *ngIf="isTake" style="text-align: center; font-size: 1.6rem;  padding-top: 1rem; color: #160a8b; position: relative; right:1.2rem;">TAKE</div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+
+        <ion-col col-2>
+          <img *ngIf="!itemName" src="assets/imgs/ellipse 2109@2x.png">
+          <img *ngIf="itemName" src="assets/imgs/ellipse 2109 copy-2@2x.png">
+        </ion-col>
+        <ion-col col-10>
+          <ion-item style="position: relative; bottom: 4rem; right:3rem;">
+            <ion-label style="color: #898989;" floating>Item Name</ion-label>
+            <ion-input [(ngModel)]="itemName"></ion-input>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+        <ion-col col-2>
+          <img *ngIf="!itemDescription" src="assets/imgs/ellipse 2109@2x.png">
+          <img *ngIf="itemDescription" src="assets/imgs/ellipse 2109 copy-2@2x.png">
+        </ion-col>
+        <ion-col col-10>
+          <ion-item style="position: relative; bottom: 4rem; right:3rem;">
+            <ion-label style="color: #898989;" floating>Product Description</ion-label>
+            <ion-input [(ngModel)]="itemDescription"></ion-input>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row>
+
+        <ion-col col-2>
+          <img *ngIf="!category" src="assets/imgs/ellipse 2109@2x.png">
+          <img *ngIf="category" src="assets/imgs/ellipse 2109 copy-2@2x.png">
+        </ion-col>
+        <ion-col col-10>
+          <ion-item style="position: relative; bottom: 2rem; right:2.5rem;">
+            <ion-label>Category</ion-label>
+            <ion-select [(ngModel)]="category">
+              <ion-option *ngFor="let cat of categories">{{cat.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+        <ion-col col-2>
+          <img *ngIf="!adress" src="assets/imgs/ellipse 2109@2x.png">
+          <img *ngIf="adress" src="assets/imgs/ellipse 2109 copy-2@2x.png">
+
+        </ion-col>
+        <ion-col col-10>
+          <ion-item style="position: relative; bottom: 2rem; right:2.5rem;">
+            <ion-label>Addresses</ion-label>
+            <ion-select [(ngModel)]="adress">
+              <ion-option *ngFor="let add of Addresses" value="{{add.id}}">{{add.city}} , {{add.area}}</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+
+      <ion-row>
+
+        <ion-col col-2>
+          <ion-checkbox [(ngModel)]="isForGood"></ion-checkbox>
+        </ion-col>
+        <ion-col col-10>
+          <ion-item style="position: relative; bottom: 1.5rem; right:3rem;">
+            <div (click)="forGoodToggle()">For Good ?</div>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row *ngIf="!isForGood">
+
+        <ion-col col-2>
+          <img *ngIf="!duration" src="assets/imgs/ellipse 2109@2x.png" style="right: 1rem;">
+          <img *ngIf="duration" src="assets/imgs/ellipse 2109 copy-2@2x.png" style="right: 1rem;">
+
+        </ion-col>
+        <ion-col col-10>
+          <ion-label style="color: #464646; position: relative; bottom: 1.2rem; right: 2rem;">Duration
+            <div style="font-size: 15px; position: relative; color:#160a8b; bottom:1.5rem; left:18rem;">{{duration}} Day(s)</div>
+          </ion-label>
+          <ion-item style="position: relative; bottom: 2rem; right:5rem;">
+            <ion-range min="1" max="90" [(ngModel)]="duration" color="primary" pin="true" (ionChange)="updateDuraton($event)">
+              <ion-label range-left>1</ion-label>
+              <ion-label range-right>90</ion-label>
+            </ion-range>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+      <ion-row style="position: relative; left: 1rem;">
+        <ion-col>
+          <div>
+            <div *ngIf="img1">
+              <img (click)="chooseImage(1)" height="auto" width="50" id="foo" style=" height:80px; width:80px; " src="{{imgbasurl}}{{img1}}">
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div>
+            <div *ngIf="img2">
+              <img (click)="chooseImage(2)" height="auto" width="50" id="foo" style=" height:80px; width:80px; " src="{{imgbasurl}}{{img2}}">
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <div *ngIf="img3">
+              <img (click)="chooseImage(3)" height="auto" width="50" id="foo" style=" height:80px; width:80px; " src="{{imgbasurl}}{{img3}}">
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+    <div padding><button (click)="edit()" ion-button style="font-size:15px;" block>Edit</button></div>
+
+  </div>
+</ion-content>

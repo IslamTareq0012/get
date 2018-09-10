@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar align-title="center">
+    <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Invite Friends</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div style="text-align: center;"><img style=" position: relative; top:5rem;" src="assets/imgs/logo copy 3@2x(1).png"></div>
+
+  <div style="text-align: center">
+    <ion-grid style="position: relative; top:3rem;">
+      <ion-row>
+
+        <ion-col col-3 (click)="share()">
+          <img style=" position: relative; top:5rem;" src="assets/imgs/share@2x.png">
+        </ion-col>
+
+        <ion-col (click)="shareFacebook()">
+          <img style=" position: relative; top:5rem;" src="assets/imgs/facebook@2x.png">
+        </ion-col>
+
+        <ion-col (click)="shareTwitter()">
+          <img style=" position: relative; top:5rem;" src="assets/imgs/twitter@2x.png">
+        </ion-col>
+
+        <ion-col (click)="shareMail()">
+          <img style=" position: relative; top:5rem;" src="assets/imgs/email@2x.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div style=" position: relative; top:7rem; text-align: center;">
+    <ion-item>
+      <ion-label style=" color: #464646;" floating>Quick Invite By Email</ion-label>
+      <ion-input [(ngModel)]="mail"></ion-input>
+    </ion-item>
+  </div>
+  <div style="text-align: center; position: relative; top:12rem; left:0.5rem;">
+    <button (click)="sendMail()" ion-button block color="primary">
+        Send
+      </button>
+
+  </div>
+
+</ion-content>

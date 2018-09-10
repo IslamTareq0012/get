@@ -1,0 +1,62 @@
+<!--
+  Generated template for the MyRequestsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Requests</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div>
+    <ion-row>
+      <ion-col col-6 class="c">
+        <div style="background: white;" (click)="ActiveOrders()" id="butn1">Active Orders</div>
+      </ion-col>
+
+      <ion-col col-6 class="c" style="position: relative; left: 1rem;">
+
+        <div style="background: white;" (click)="MyHistory()" id="butn1">History</div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div *ngIf="activeOrdersOrHistory">
+    <div *ngFor="let request of activeRequests">
+      <ion-card *ngIf="request?.status==='Approved' && request?.ProviderItemId?.duration !='for good'"  no-padding>
+        <ion-card-content no-padding>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <img src="{{imgbasurl}}{{request?.ProviderItemId?.images[0]}}" style="width: 120px; height: 120px;">
+              </ion-col>
+              <ion-col col-6>
+                <div>
+                  {{request?.ProviderItemId?.name}} <br><br>{{request?.updatedAt | shortDate}}<br><br>
+                  <hr>                  
+                </div>
+                <hr>                
+                <ion-row>
+                  <ion-col style="height: 2rem;">
+                    <ion-item><button (click)="finishTransaction(request.id , request.ProviderItemId.id,request.RequesterItemId , 'done')" style="bottom: 1rem;" item-right ion-button clear><ion-icon style="color:#4d4d4d" name="md-done-all"></ion-icon></button></ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+    </div>
+  </div>
+
+</ion-content>

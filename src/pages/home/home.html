@@ -1,14 +1,142 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<!--
+  Generated template for the LoginPage page.
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content>
+    
+      <div class="logocontainer">
+        <ion-img class="image" width="80" height="80" src="assets/imgs/logo@3x.png"></ion-img>
+      </div>
+      <ion-row>
+        <ion-col col-5 offset-2>
+          <button (click)="onButtonClick1()" id="btn1" style="font-size: 20px; ; padding-top: 15%; padding-bottom: 8%;">Sign In</button>
+        </ion-col>
+    
+        <ion-col col-5>
+    
+          <button (click)="onButtonClick2()" id="btn2" style="font-size: 18px;  padding-top: 15%; padding-bottom: 8%;">Sign Up</button>
+        </ion-col>
+      </ion-row>
+      <div class="logform" *ngIf="buttonClicked1" padding>
+        <form (ngSubmit)="login()">
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+    
+                <ion-input type="email" placeholder="E-mail" name="email" [(ngModel)]="logincredentials.email"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+    
+                <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="logincredentials.password"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col offset-5 col-9>
+              <div (click)="buttonclicked3()" style="color: rgba(99, 99, 99, 1);background-color: white;">Forgot your Password?</div>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12>
+              <button ion-button type="submit" block > Sign In</button>
+            </ion-col>
+          </ion-row>
+          <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    
+        </form>
+        <ion-row>
+          <ion-col col-12>
+            <button ion-button block class="fb" (click)="signinWithFacebook()"><div style=" "></div>Sign In with Facebook</button>
+          </ion-col>
+        </ion-row>
+      </div>
+    
+      <div class="regform" *ngIf="buttonClicked2" padding>
+        <form (ngSubmit)="register()" #regForm="ngForm">
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-input type="text" placeholder="Full-Name" name="fullname" [(ngModel)]="regcredentials.fullname" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+           <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-input type="email" placeholder="E-mail" name="email" [(ngModel)]="regcredentials.email" required></ion-input>
+              </ion-item>
+            </ion-col>
+           </ion-row>
+            <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-input type="text" name="mobile" placeholder="+20            Mobile Number" [(ngModel)]="regcredentials.mobile" required></ion-input>
+              </ion-item>
+            </ion-col>
+            </ion-row>
+             <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-input type="password" name="password" placeholder="Password" [(ngModel)]="regcredentials.password" required></ion-input>
+              </ion-item>
+            </ion-col>
+             </ion-row>
+            
+     <ion-row>
+            <ion-col col-12>
+              <button ion-button type="submit" block [disabled]="!regForm.form.valid"> Sign Up</button>
+            </ion-col>
+     </ion-row>
+        </form>
+         <ion-row>
+            <ion-col col-12>
+        <button ion-button block class="fb" (click)="signupWithFacebook()"><div></div>Sign Up with Facebook</button>
+            </ion-col>
+      </ion-row>
+      </div>
+    
+      <div style="  " *ngIf="buttonClicked3">
+        <ion-row>
+          <ion-col col-12 style=" color: rgba(86, 98, 112, 1) ; text-align: center; font-size: 14px;">
+             
+          Enter your mail and we will send you
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style=" color: rgba(86, 98, 112, 1) ; text-align: center; font-size: 14px;">
+             a link to reset your password
+          </ion-col>
+        </ion-row>
+        
+          <form (ngSubmit)="forgetpass()">
+            <ion-row>
+              <ion-col col-10 offset-1>
+            <ion-item>
+              <ion-input type="email" placeholder="E-mail" name="email" [(ngModel)]="email"></ion-input>
+            </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-9 offset-2>
+            <button ion-button type="submit" block>Submit</button>
+              </ion-col>
+            </ion-row>
+          </form>
+      
+      </div>
+    </ion-content>

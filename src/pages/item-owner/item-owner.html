@@ -1,0 +1,72 @@
+<ion-content>
+  <div style="background:#160a8b ;">
+
+    <div style="color:white;">
+      <br>
+      <ion-buttons end>
+        <button ion-button clear icon-only (click)="close()">
+                  <ion-icon style="color: white;" name="ios-close-circle-outline"></ion-icon>
+                </button>
+      </ion-buttons>
+    </div>
+
+    <ion-row style="color: white; top:5rem;">
+
+      <ion-col col-4>
+        <div style=" position: absolute; font-size: 13px; bottom:1rem; border-radius: 25px; border-width: 60px; border:1px solid #FFFFFF;">
+          <ion-icon name="star"></ion-icon>&nbsp; &nbsp; {{ownerRating}} &nbsp;</div>
+      </ion-col>
+
+      <ion-col col-4 text-center>
+        <img *ngIf="!ownerImage" height="auto" width="70" style=" border-radius:50%;" src="assets/imgs/765-default-avatar.png">
+        <img *ngIf="ownerImage" height="auto" width="70" style=" border-radius:50%;" src="{{imgbasurl}}{{ownerImage}}">
+
+        <p>{{ownerName}}</p>
+        <P>{{numberOfItems}} Items(s)</P>
+      </ion-col>
+
+      <ion-col col-4>
+        <p style="position: absolute; font-size: 14px;  bottom:1rem; left:3rem;">Report &nbsp;
+          <ion-icon name="ios-flag-outline"></ion-icon>
+        </p>
+      </ion-col>
+
+    </ion-row>
+  </div>
+
+  <div padding>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-11>
+                {{itemOwnerArea}}
+            </ion-col>
+            <ion-col col-1>
+                <ion-icon  style="font-size: 14px;" name="ios-pin"></ion-icon>                
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-content>
+    </ion-card> <br>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 no-padding *ngFor="let item of items">
+          <ion-card (click)="showItem(item.id)" *ngIf="ownerID == item.accountID.id">
+            <img style="width: max; height: 120px;" src="{{imgbasurl}}{{item.images[0]}}?version={{ran}}" />
+            <ion-card-header>
+              {{item.name}}
+            </ion-card-header>
+            <ion-card-content class="flexLine">
+              {{item.description}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+</ion-content>

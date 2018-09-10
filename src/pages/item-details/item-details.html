@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar hideBackButton="true" color="parimary">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="close()">
+              <ion-icon name="ios-close-circle-outline"></ion-icon>
+            </button>
+    </ion-buttons>
+    <ion-title >
+      View Item
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img style="width: 100%; height: auto;" src="{{imgbasurl}}{{itemimg[0]}}?version={{ran}}">
+  <div padding>
+    <ion-grid>
+      <ion-row style="height: 5rem;">
+        <ion-col col-11>
+          <h6 start>{{itemprovider}}</h6>
+        </ion-col>
+        <ion-icon col-1 name="star" style="color:#FFDF00; font-size: 3rem; position: relative; bottom: 1.1rem;"></ion-icon>
+      </ion-row>
+      <ion-row style="height: 1rem;">
+        <ion-col col-10 style=" color: #464646; position: relative; bottom: 1.5rem;">
+          <h4>{{itemname}}</h4>
+        </ion-col>
+        <p col-2 style="color:#464646; position: relative; left:3rem; bottom: 3.5rem; font-weight:bold;">{{userRating}}</p>
+      </ion-row>
+      <ion-row style="height: 1rem; position: relative; top:1.5rem;">
+        <ion-icon col-1 name="ios-pin" style="color:#898989; font-size: 1.5rem; position: relative; bottom:1.5rem; left:0.2rem;"></ion-icon>
+        <p col-11 style="color:#464646; position: relative; left:0.01rem; bottom: 1.5rem; font-weight:bold; ">{{itemloc}}</p>
+      </ion-row>
+    </ion-grid>
+
+    <hr style="position: relative; top:2.125rem">
+
+    <ion-grid>
+      <ion-row style="position: relative; top:2rem;">
+        <ion-col col-4 style="color:#707070; font-size: 1.8rem; position: relative; right:0.8rem;">Category</ion-col>
+        <ion-col col-8 style="color:#464646; font-size: 2rem; position: relative; left:2.5rem;">{{name}}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <hr style="position: relative; top:2.125rem">
+
+    <ion-grid>
+      <ion-row style="position: relative; top:2rem;">
+        <ion-col col-8 style="color:#707070; font-size: 1.8rem; position: relative; right:0.8rem;">Duration of Give</ion-col>
+        <ion-col *ngIf="itemduration == 'for good'" col-4 style="color:#464646; font-size: 1.5rem; position: relative; left:1.8rem;">For Good</ion-col>
+        <ion-col  *ngIf="itemduration != 'for good'" col-4 style="color:#464646; font-size: 1.5rem; position: relative; left:1.8rem;">{{itemduration}} Day(s)</ion-col>
+        
+      </ion-row>
+    </ion-grid>
+
+    <hr style="position: relative; top:2rem;">
+
+    <p text-wrap style="margin-top: 3rem; margin-bottom: 0.5rem;">
+      {{itemdes}}
+    </p>
+
+  </div>
+  <ion-grid style="width:100%; margin: 0%;" *ngIf="UserID != idOfItemOwner">
+    <ion-row>
+      <ion-col  col-6 style="color:white; font-size: 1.8rem;background: #75b2e1;text-align: center;">Send Message</ion-col>
+      <ion-col (click)="createRequest()" col-6 style="color:white; font-size: 2rem;  background: #160a8b; text-align: center;">Yalla</ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid style="width:100%; margin: 0%;" *ngIf="UserID == idOfItemOwner" >
+    <ion-row>
+      <ion-col (click)="editItem()"  col-6 style="color:white; font-size: 2rem; background: #32db64 ;text-align: center;">Edit</ion-col>
+      <ion-col (click)="deleteItem()" col-6 style="background: #f53d3d; color:white; font-size: 2rem;  text-align: center;">Delete</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

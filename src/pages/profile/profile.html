@@ -1,0 +1,148 @@
+<ion-header>
+
+  <ion-navbar align-title="center" style="size: 30%;">
+    <button item-start ion-button menuToggle style="position: relative; bottom:4.5rem;">
+          <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title style="text-align: center">
+      Profile
+    </ion-title>
+    <img *ngIf="user.image" height="auto" width="50" id="foo" style="margin-bottom: 2rem; height:80px; width:80px; position: relative; left: 7.5rem; top:3rem; border-radius:50%;"
+      src="{{imgbasurl}}{{user.image}}?version={{ran}}">
+    <img *ngIf="!user.image" height="auto" width="50" id="foo" style="margin-bottom: 2rem; height:80px; width:80px; position: relative; left: 7.5rem; top:3rem; border-radius:50%;"
+      src="assets/imgs/765-default-avatar.png">
+
+    <button (click)="editProfile()" ion-button small color="light" style="position: relative; left: 5rem; top:0.15rem; height: 2rem;">Edit</button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-3 class="c">
+      <div (click)="Details()" id="butn1">Details</div>
+    </ion-col>
+
+    <ion-col col-6 class="c" style="position: relative; left: 1rem;">
+
+      <div (click)="Addressbook()" id="butn1">Address Book</div>
+    </ion-col>
+    <ion-col col-2 class="c" style="position: relative; left: 2rem;">
+      <div (click)="Items()" id="butn1">Items</div>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="button1" padding>
+    <ion-row> <br>
+      <ion-col col-12>
+        <label style="color: rgba(112, 112, 112, 1) ;font-weight:initial">
+        NAME
+      </label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <label style="color: rgba(112, 112, 112, 1) ;font-weight:initial">
+        {{user.fullName}}
+      </label>
+      </ion-col>
+    </ion-row> <br>
+    <ion-row>
+      <ion-col col-12>
+        <label style="color: rgba(112, 112, 112, 1) ;font-weight:initial">
+       Email
+      </label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <label style="color: rgba(112, 112, 112, 1) ;font-weight:initial">
+        {{user.email}}
+      </label>
+      </ion-col>
+    </ion-row> <br>
+    <ion-row>
+      <ion-col col-12>
+        <label style="color: rgba(112, 112, 112, 1) ;font-weight:initial">
+       PHONE NO.
+      </label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <label style="color: rgba(112, 112, 112, 1) ;font-weight:initial">
+          {{user.mobileNumber}}
+      </label>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- <div *ngIf="button2"> -->
+
+  <ion-card *ngIf="button2">
+
+    <ion-card-header>
+      Primary Address
+    </ion-card-header>
+
+    <ion-card-content style="color:rgba(112, 112, 112, 1)">
+      {{Addresses[0].city}}<br> {{Addresses[0].area}}
+      <br> {{Addresses[0].country}}
+      <br> T: {{Addresses[0].mobile}}
+      <button ion-button (click)="editPrimaryAddress(Addresses[0].id)" block outline>Change Primary Address</button>
+
+    </ion-card-content>
+
+  </ion-card>
+  <div *ngIf="button2">
+    <ion-card *ngFor="let address of Addresses | slice:1; let i = index">
+
+      <ion-card-header>
+        Additional Address
+
+      </ion-card-header>
+
+      <ion-card-content style="color:rgba(112, 112, 112, 1)">
+        {{address.city}}<br> {{address.area}}
+        <br> {{address.country}}
+        <br> T: {{address.mobile}} <br>
+        <button ion-button (click)="editAdditionalAddress(address.id)" outline>Edit</button>
+        <button ion-button (click)="alertdelete(address.id)" outline>Remove</button>
+
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+  <ion-fab *ngIf="button2" bottom right>
+    <button color="primary" ion-fab mini (click)="addAdditionalAddress()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+  </ion-fab>
+  <!-- </div> -->
+
+  <!-- <div *ngIf="button3" padding> -->
+
+  <div *ngIf="button3">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6 no-padding *ngFor="let item of items">
+          <ion-card (click)="showItem(item.id)">
+            <img style="width: max; height: 120px;" src="{{imgbasurl}}{{item.images[0]}}?version={{ran}}" />
+            <ion-card-header>
+              {{item.name}}
+            </ion-card-header>
+            <ion-card-content class="flexLine">
+              {{item.description}}
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-fab *ngIf="button3" bottom right>
+    <button color="primary" ion-fab mini (click)="navAddimem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+  </ion-fab>
+  <!-- </div> -->
+</ion-content>

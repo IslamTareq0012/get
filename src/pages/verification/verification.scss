@@ -1,0 +1,25 @@
+page-verification {
+    
+    }
+    .circleBase {
+        border-radius: 50%;
+        behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    }
+    
+    .type3 {
+        width: 40px;
+        height: 40px;
+        background: #726bbb;
+       // border: 30px solid blue;
+    }
+    .bullet {
+        width: 20px;
+        height: 20px;
+        background: white;
+       // border: 30px solid blue;
+    }
+    .num:hover{
+        border-bottom: 2px solid rgba(4, 31, 162, 1);
+    }
+    
+    
